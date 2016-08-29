@@ -4,7 +4,7 @@ public class Runner {
 
 	static final String PATH_TO_INI = "D://Eclipse//workspace_mukoid//Testing framework//config//tf.ini";
 	static final String PATH_TO_EXCEL = "D://Eclipse//workspace_mukoid//Testing framework//config//tf.ini"; 
-	
+	// adding some comment
 	public enum TestStatus {
 	    PASSED, FAILED 
 	}
