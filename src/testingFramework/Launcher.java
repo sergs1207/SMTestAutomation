@@ -1,11 +1,16 @@
 package testingFramework;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
+
+import jxl.write.WriteException;
+
 public class Launcher {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, WriteException {
 		Runner myInstance = new Runner();
 		
 		myInstance.loadConfigurations();
-		myInstance.setUpEnvironment();
 		myInstance.runTestCases();
 		myInstance.generateTestReport();
 

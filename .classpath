@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="D:/Eclipse/workspace_mukoid/Testing framework/lib/jxl/jxl.jar"/>
+	<classpathentry kind="lib" path="D:/Eclipse/workspace_mukoid/Testing framework/lib/jdbc/mysql-connector-java-5.1.39-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

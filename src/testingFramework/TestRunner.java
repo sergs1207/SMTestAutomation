@@ -22,8 +22,9 @@ public class TestRunner {
 
 			while (true) {
 				String stepNumber = wrk1.getSheet(0).getCell(0, i).getContents();
-				String actionToDo = wrk1.getSheet(0).getCell(1, i).getContents();
-				String expectedResult = wrk1.getSheet(0).getCell(2, i).getContents();
+				String stepDescription = wrk1.getSheet(0).getCell(1, i).getContents();
+				String actionToDo = wrk1.getSheet(0).getCell(2, i).getContents();
+				String expectedResult = wrk1.getSheet(0).getCell(3, i).getContents();
 				String actualResult = "";
 				String testResult = "";
 
@@ -59,7 +60,7 @@ public class TestRunner {
 
 	public void executeTestCases() {
 		for (String[] x : TestCases) {
-			RunSQL myQuery = new RunSQL(x[1]);
+			RunSQL myQuery = new RunSQL(DB_CONNECTION_NAME, DB_USER, DB_PASSWORD, x[1]);
 			x[3] = myQuery.getResultToString();
 	}
 
