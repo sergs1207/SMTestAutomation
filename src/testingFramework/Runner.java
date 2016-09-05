@@ -39,16 +39,11 @@ public class Runner {
 	public void runTestCases() {
 		TestRunner myTestRun = new TestRunner();
 		myTestRun.loadTestCaseData(pathToExcel);
-		myTestRun.showTestCaseData();
 		myTestRun.executeTestCases(dbConnectionString, dbUser, dbPassword);
-		
+		myTestRun.showTestCaseData();	
 	}
 
-	public void generateTestReport() throws WriteException, IOException {
-		Reporting myReport = new Reporting();
-		// myReport.generateHTMLreport(PATH_TO_REPORTS);
-
-	}
+	
 
 	public static void main(String[] args) {
 
