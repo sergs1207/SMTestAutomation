@@ -44,6 +44,7 @@ public class TestRunner {
 	}
 
 	public void prepareTestReportData() {
+
 		for (String[] x : TestCases) {
 			if (x[2] == x[3]) {
 				x[4] = TestStatus.values()[0].toString();
@@ -60,22 +61,22 @@ public class TestRunner {
 
 	public void executeTestCases() {
 		for (String[] x : TestCases) {
-			RunSQL myQuery = new RunSQL(DB_CONNECTION_NAME, DB_USER, DB_PASSWORD, x[1]);
-			x[3] = myQuery.getResultToString();
-	}
+			// RunSQL myQuery = new RunSQL(DB_CONNECTION_NAME, DB_USER,
+			// DB_PASSWORD, x[1]);
+			// x[3] = myQuery.getResultToString();
+		}
 
 	}
 
 	public static void main(String[] args) {
-		//It should be removed after testing 
-		
+		// It should be removed after testing
+
 		TestRunner myRunner = new TestRunner();
 		myRunner.loadTestCaseData("D://testingFramework//config//TestCases.xls");
 		myRunner.showTestCaseData();
 		myRunner.executeTestCases();
-		
-		//This file should contain only logic 
-		
+
+		// This file should contain only logic
 
 	}
 }

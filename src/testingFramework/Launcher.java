@@ -9,7 +9,7 @@ import jxl.write.WriteException;
 public class Launcher {
 	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, WriteException {
 		Runner myInstance = new Runner();
-		
+
 		myInstance.loadConfigurations();
 		myInstance.runTestCases();
 		myInstance.generateTestReport();
