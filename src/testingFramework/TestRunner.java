@@ -22,7 +22,7 @@ public class TestRunner {
 
 			while (true) {
 				String stepNumber = wrk1.getSheet(0).getCell(0, i).getContents();
-				String stepDescription = wrk1.getSheet(0).getCell(1, i).getContents();
+				
 				String actionToDo = wrk1.getSheet(0).getCell(2, i).getContents();
 				String expectedResult = wrk1.getSheet(0).getCell(3, i).getContents();
 				String actualResult = "";
@@ -46,7 +46,7 @@ public class TestRunner {
 	public void prepareTestReportData() {
 
 		for (String[] x : TestCases) {
-			if (x[2] == x[3]) {
+			if (x[2].equals(x[3])) {
 				x[4] = TestStatus.values()[0].toString();
 			} else {
 				x[4] = TestStatus.values()[1].toString();
@@ -59,24 +59,17 @@ public class TestRunner {
 			System.out.println(x[0] + " " + x[1] + " " + x[2] + " " + x[3] + " " + x[4]);
 	}
 
-	public void executeTestCases() {
+	public void executeTestCases(String dbConnectionString, String dbUser, String dbPassword) {
 		for (String[] x : TestCases) {
-			// RunSQL myQuery = new RunSQL(DB_CONNECTION_NAME, DB_USER,
-			// DB_PASSWORD, x[1]);
-			// x[3] = myQuery.getResultToString();
+			RunSQL myQuery = new RunSQL(dbConnectionString, dbUser, dbPassword, x[1]);
+			x[3] = myQuery.getResultToString();
+			
 		}
 
 	}
 
 	public static void main(String[] args) {
-		// It should be removed after testing
-
-		TestRunner myRunner = new TestRunner();
-		myRunner.loadTestCaseData("D://testingFramework//config//TestCases.xls");
-		myRunner.showTestCaseData();
-		myRunner.executeTestCases();
-
-		// This file should contain only logic
+		
 
 	}
 }

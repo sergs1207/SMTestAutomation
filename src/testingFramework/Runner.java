@@ -10,12 +10,12 @@ public class Runner {
 
 	static final String PATH_TO_INI = "D://Eclipse//workspace_mukoid//Testing framework//src//testingFramework//framework.ini";
 
-	String PATH_TO_EXCEL = "";
-	String DB_CONNECTION_STRING = ""; // driver for connection
-	String DB_USER = ""; // login
-	String DB_PASSWORD = ""; // password
-	String PATH_TO_SCRIPTS = "";
-	String PATH_TO_REPORTS = "";
+	public String pathToExcel = "";
+	public String dbConnectionString = ""; // driver for connection
+	public String dbUser = ""; // login
+	public String dbPassword = ""; // password
+	public String pathToScripts = "";
+	public String pathToReports = "";
 
 	public enum TestStatus {
 		PASSED, FAILED
@@ -25,10 +25,10 @@ public class Runner {
 
 		EnvironmentSetup myEnvironment = new EnvironmentSetup();
 
-		DB_CONNECTION_STRING = myEnvironment.getFromIniFile("DB_CONNECTION_STRING", PATH_TO_INI);
-		DB_USER = myEnvironment.getFromIniFile("DB_USER", PATH_TO_INI);
-		DB_PASSWORD = myEnvironment.getFromIniFile("DB_PASSWORD", PATH_TO_INI);
-		PATH_TO_SCRIPTS = myEnvironment.getFromIniFile("QUERIES", PATH_TO_INI);
+		dbConnectionString = myEnvironment.getFromIniFile("DB_CONNECTION_STRING", PATH_TO_INI);
+		dbUser = myEnvironment.getFromIniFile("DB_USER", PATH_TO_INI);
+		dbPassword = myEnvironment.getFromIniFile("DB_PASSWORD", PATH_TO_INI);
+		pathToScripts = myEnvironment.getFromIniFile("QUERIES", PATH_TO_INI);
 
 		// Uncomment when creating environment from scratch
 		// myEnvironment.CreateDbTablesWithData(DB_USER, DB_PASSWORD,
@@ -38,10 +38,10 @@ public class Runner {
 
 	public void runTestCases() {
 		TestRunner myTestRun = new TestRunner();
-		myTestRun.loadTestCaseData(PATH_TO_EXCEL);
+		myTestRun.loadTestCaseData(pathToExcel);
 		myTestRun.showTestCaseData();
-		myTestRun.executeTestCases();
-
+		myTestRun.executeTestCases(dbConnectionString, dbUser, dbPassword);
+		
 	}
 
 	public void generateTestReport() throws WriteException, IOException {

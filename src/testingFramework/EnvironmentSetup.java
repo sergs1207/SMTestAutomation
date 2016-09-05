@@ -57,10 +57,7 @@ public class EnvironmentSetup {
 
 	public String getFromIniFile(String myParam, String pathToIni) throws FileNotFoundException, IOException {
 		String parametrValue = "";
-		// открыть файл для чтения
-		// вычитываем в стринговую переменную построчно
-		// если строка начинается с символов myParam + "= ", то присвоить в
-		// переменную parametrValue все что правее
+		
 		try {
 			File file = new File(pathToIni);
 			FileReader fileReader = new FileReader(file);
@@ -69,11 +66,10 @@ public class EnvironmentSetup {
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
 
-				if (line.substring(0, myParam.length()).equals(myParam)) {
+				if ((line.length()>myParam.length()) &&( line.substring(0, myParam.length()).equals(myParam))) 
 					parametrValue = line.substring(myParam.length() + 1, line.length());
-				}
-
 			}
+			
 			fileReader.close();
 
 		} catch (IOException e) {
