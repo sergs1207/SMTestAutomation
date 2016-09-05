@@ -2,8 +2,7 @@ package testingFramework;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 
 import jxl.Workbook;
 import jxl.format.Alignment;
@@ -19,9 +18,7 @@ import jxl.write.WriteException;
 public class Reporting {
 
 	public void generateHTMLreport(String pathToReports) throws IOException, WriteException {
-		// îòêðûòü íîâûé ôàéë äëÿ çàïèñè
-		// ïîëíûé ïóòü ê ýòîìó ôàéëó âûãëÿäåò òàê: pathToReports + "testReport"
-		// + yyyymmddhhss
+		
 		String fullPathToFile = pathToReports + ""; // îò ñþäà
 													// https://docs.oracle.com/javase/tutorial/datetime/iso/datetime.html
 
